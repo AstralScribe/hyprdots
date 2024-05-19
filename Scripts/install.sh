@@ -100,40 +100,40 @@ EOF
     #--------------------------------#
     # add nvidia drivers to the list #
     #--------------------------------#
-    if nvidia_detect; then
-        cat /usr/lib/modules/*/pkgbase | while read krnl; do
-            echo "${krnl}-headers" >> "${scrDir}/install_pkg.lst"
-        done
-        nvidia_detect --drivers >> "${scrDir}/install_pkg.lst"
-    fi
+    # if nvidia_detect; then
+    #     cat /usr/lib/modules/*/pkgbase | while read krnl; do
+    #         echo "${krnl}-headers" >> "${scrDir}/install_pkg.lst"
+    #     done
+    #     nvidia_detect --drivers >> "${scrDir}/install_pkg.lst"
+    # fi
 
-    nvidia_detect --verbose
+    # nvidia_detect --verbose
 
     #----------------#
     # get user prefs #
     #----------------#
-    if ! chk_list "aurhlpr" "${aurList[@]}"; then
-        echo -e "Available aur helpers:\n[1] yay\n[2] paru"
-        prompt_timer 120 "Enter option number"
+    # if ! chk_list "aurhlpr" "${aurList[@]}"; then
+    #     echo -e "Available aur helpers:\n[1] yay\n[2] paru"
+    #     prompt_timer 120 "Enter option number"
+    #
+    #     case "${promptIn}" in
+    #         1) export getAur="yay" ;;
+    #         2) export getAur="paru" ;;
+    #         *) echo -e "...Invalid option selected..." ; exit 1 ;;
+    #     esac
+    # fi
 
-        case "${promptIn}" in
-            1) export getAur="yay" ;;
-            2) export getAur="paru" ;;
-            *) echo -e "...Invalid option selected..." ; exit 1 ;;
-        esac
-    fi
-
-    if ! chk_list "myShell" "${shlList[@]}"; then
-        echo -e "Select shell:\n[1] zsh\n[2] fish"
-        prompt_timer 120 "Enter option number"
-
-        case "${promptIn}" in
-            1) export myShell="zsh" ;;
-            2) export myShell="fish" ;;
-            *) echo -e "...Invalid option selected..." ; exit 1 ;;
-        esac
-        echo "${myShell}" >> "${scrDir}/install_pkg.lst"
-    fi
+    # if ! chk_list "myShell" "${shlList[@]}"; then
+    #     echo -e "Select shell:\n[1] zsh\n[2] fish"
+    #     prompt_timer 120 "Enter option number"
+    #
+    #     case "${promptIn}" in
+    #         1) export myShell="zsh" ;;
+    #         2) export myShell="fish" ;;
+    #         *) echo -e "...Invalid option selected..." ; exit 1 ;;
+    #     esac
+    #     echo "${myShell}" >> "${scrDir}/install_pkg.lst"
+    # fi
 
     #--------------------------------#
     # install packages from the list #

@@ -64,6 +64,6 @@ if [[ ${#archPkg[@]} -gt 0 ]]; then
     sudo pacman ${use_default} -S "${archPkg[@]}"
 fi
 
-if [[ ${#aurhPkg[@]} -gt 0 ]]; then
-    "${aurhlpr}" ${use_default} -S "${aurhPkg[@]}"
-fi
+# if [[ ${#aurhPkg[@]} -gt 0 ]]; then
+#     "${aurhlpr}" ${use_default} -S "${aurhPkg[@]}"
+# fi
